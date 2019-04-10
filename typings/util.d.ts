@@ -3,6 +3,7 @@
  * Copyright (c) 2019 Contentstack LLC
  * MIT Licensed
  */
+export declare const mergeClassProperties: (source: any, dest: any) => any;
 /**
  * @private
  *

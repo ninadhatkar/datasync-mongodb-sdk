@@ -6,6 +6,21 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const lodash_1 = require("lodash");
+exports.mergeClassProperties = (source, dest) => {
+    if (typeof source !== 'object' || typeof dest !== 'object') {
+        throw new Error(`Kindly pass valid parameters to '.clone()'. Source and Dest params should be of type object!`);
+    }
+    // copies instance members from source to destination
+    for (const key in source) {
+        dest[key] = source[key];
+    }
+    // copy prototype members from source to destination
+    const prototypeKeys = Object.getPrototypeOf(source);
+    prototypeKeys.forEach((key) => {
+        dest[key] = source[key];
+    });
+    return dest;
+};
 /**
  * @private
  *
